@@ -60,7 +60,7 @@ Things you may want to cover:
 | building_name    | string     | null: false |
 
 ## Association
-- belongs_to :order
+- belongs_to :history
 
 ## messagesテーブル
 | Column    | Type           | Options                        |
