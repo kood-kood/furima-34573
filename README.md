@@ -26,10 +26,10 @@ Things you may want to cover:
 | product_name         | string   | null: false |
 | price                | integer  | null: false |
 | description          | text     | null: false |
-| product_condition_id | integer  | null: false | 
-| shipping_charge_id   | integer  | null: false |
-| shipping_rea_id      | integer  | null: false |
-| days_to_ship_id      | integer  | null: false |
+| product_condition_id | integer  | null: false, foreign_key: true | 
+| shipping_charge_id   | integer  | null: false, foreign_key: true |
+| shipping_rea_id      | integer  | null: false, foreign_key: true |
+| days_to_ship_id      | integer  | null: false, foreign_key: true |
 | category_id          | integer  | null: false, foreign_key: true |
 
 ### Association
@@ -55,7 +55,7 @@ Things you may want to cover:
 | address          | string     | null: false |
 | phone_number     | string     | null: false |
 | postal_code      | string     | null: false |
-| prefecture_id    | integer    | null: false |
+| prefecture_id    | integer    | null: false, foreign_key: true |
 | municipality     | string     | null: false |
 | building_name    | string     |
 
