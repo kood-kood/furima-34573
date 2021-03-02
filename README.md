@@ -23,18 +23,18 @@ Things you may want to cover:
 * Database initialization
 | Column               | Type     | Options     |
 | -------------------- | -------- | ----------- |
-| product_name         | string   | null: false |
+| product_name         | string   | null: false, foreign_key: true |
 | price                | integer  | null: false |
 | description          | text     | null: false |
-| product_condition_id | integer  | null: false, foreign_key: true | 
-| shipping_charge_id   | integer  | null: false, foreign_key: true |
-| shipping_rea_id      | integer  | null: false, foreign_key: true |
-| days_to_ship_id      | integer  | null: false, foreign_key: true |
-| category_id          | integer  | null: false, foreign_key: true |
+| product_condition_id | integer  | null: false | 
+| shipping_charge_id   | integer  | null: false |
+| shipping_rea_id      | integer  | null: false |
+| days_to_ship_id      | integer  | null: false |
+| category_id          | integer  | null: false |
 
 ### Association
 - belongs_to :user
-- has_one :histories
+- has_one :history
 
 ## historiesテーブル
 
@@ -60,7 +60,7 @@ Things you may want to cover:
 | building_name    | string     |
 
 ## Association
-- belongs_to :histories
+- belongs_to :history
 
 ## messagesテーブル
 | Column    | Type           | Options                        |
