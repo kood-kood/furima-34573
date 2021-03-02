@@ -1,4 +1,4 @@
-# テーブル設計
+hist# テーブル設計
 
 ## usersテーブル
 
@@ -21,22 +21,22 @@ Things you may want to cover:
 ## itemsテーブル
 
 * Database initialization
-| Column            | Type     | Options     |
-| ----------------- | -------- | ----------- |
-| product_name      | string   | null: false |
-| price             | integer  | null: false |
-| description       | text     | null: false |
-| product_condition | text     | null: false | 
-| shipping_charges  | integer  | null: false |
-| shipping_rea      | text     | null: false |
-| days_to_ship      | date     | null: false |
-| category_id       | integer  | null: false, foreign_key: true |
+| Column               | Type     | Options     |
+| -------------------- | -------- | ----------- |
+| product_name         | string   | null: false |
+| price                | integer  | null: false |
+| description          | text     | null: false |
+| product_condition_id | integer  | null: false | 
+| shipping_charge_id   | integer  | null: false |
+| shipping_rea_id      | integer  | null: false |
+| days_to_ship_id      | integer  | null: false |
+| category_id          | integer  | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_one :historie
+- has_one :histories
 
-## historysテーブル
+## historiesテーブル
 
 | Column    | Type       | Options     |
 | --------- | ---------- | ----------- |
@@ -44,23 +44,23 @@ Things you may want to cover:
 | payment   | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user, foreign_key: true
-- belongs_to :item, foreign_key: true
+- belongs_to :user
+- belongs_to :item
 - has_one :domicile
 
 ## domicilesテーブル
 
 | Column           | Type       | Options     |
 | ---------------- | ---------- | ----------- |
-| address          | text       | null: false |
-| phone_number     | text       | null: false |
+| address          | string     | null: false |
+| phone_number     | string     | null: false |
 | postal_code      | string     | null: false |
-| prefectures      | string     | null: false |
+| prefecture_id    | integer    | null: false |
 | municipality     | string     | null: false |
-| building_name    | string     | null: false |
+| building_name    | string     |
 
 ## Association
-- belongs_to :history
+- belongs_to :histories
 
 ## messagesテーブル
 | Column    | Type           | Options                        |
