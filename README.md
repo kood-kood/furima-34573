@@ -5,11 +5,15 @@
 Things you may want to cover:
 | Column             | Type     | Options     |
 | -----------------  | -------- | ----------- |
-| email              | string   | null: false |
+| email              | string   | null: false, unique: true|
 | encrypted_password | string   | null: false |
 | nickname           | string   | null: false |
 | name               | string   | null: false |
-| Birthday           | date     | null: false |
+| birthday           | date     | null: false |
+| Last name          | string   | null: false |
+| given names        | string   | null: false |
+| Last name furigana | string   | null: false |
+| given names furigana | string   | null: false |
 
 ### Association
 - has_many :items
@@ -20,21 +24,19 @@ Things you may want to cover:
 * Database initialization
 | Column       | Type     | Options     |
 | ------------ | -------- | ----------- |
-| Product name | string   | null: false |
-| Category     | string   | null: false |
+| product name | string   | null: false |
+| category_id  | integer  | null: false |
 | price        | integer  | null: false |
-| Seller       | string   | null: false |
-| Description  | text     | null: false |
-| Details      | string   | null: false |
-| delivery     | string   | null: false |
-
-| image | Implemented with Active Storage | 
+| seller_id    | integer  | null: false |
+| description  | text     | null: false |
+| details_id   | integer  | null: false |
+| delivery_id  | integer  | null: false |
 
 ### Association
 - has_many :users
 - has_one :orders
 
-## ordersテーブル
+## historysテーブル
 
 | Column    | Type       | Options     |
 | --------- | ---------- | ----------- |
@@ -50,9 +52,9 @@ Things you may want to cover:
 
 | Column           | Type       | Options     |
 | ---------------- | ---------- | ----------- |
-| Street address   | text       | null: false |
-| Delivery method  | text       | null: false |
-| credit card      | text       | null: false |
+| street address   | text       | null: false |
+| delivery method  | text       | null: false |
+| phone number     | text       | null: false |
 
 ## Association
 - belongs_to :orders
