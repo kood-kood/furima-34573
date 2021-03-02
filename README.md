@@ -12,7 +12,7 @@ Things you may want to cover:
 | birthday           | date     | null: false |
 | Last name          | string   | null: false |
 | given names        | string   | null: false |
-| Last name furigana | string   | null: false |
+| last name furigana | string   | null: false |
 | given names furigana | string   | null: false |
 
 ### Association
