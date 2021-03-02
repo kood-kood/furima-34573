@@ -59,3 +59,5 @@ end
 
 gem 'pry-rails'
 gem 'devise'
+
+gem 'sprockets'
