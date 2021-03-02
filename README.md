@@ -10,7 +10,7 @@ Things you may want to cover:
 | nickname           | string   | null: false |
 | name               | string   | null: false |
 | birthday           | date     | null: false |
-| Last name          | string   | null: false |
+| last name          | string   | null: false |
 | given names        | string   | null: false |
 | last name furigana | string   | null: false |
 | given names furigana | string   | null: false |
