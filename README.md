@@ -3,13 +3,13 @@
 ## usersテーブル
 
 Things you may want to cover:
-| Column     | Type     | Options     |
-| ---------  | -------- | ----------- |
-| email      | string   | null: false |
-| password   | string   | null: false |
-| nickname   | string   | null: false |
-| name       | string   | null: false |
-| Birthday   | datetime | null: false |
+| Column             | Type     | Options     |
+| -----------------  | -------- | ----------- |
+| email              | string   | null: false |
+| encrypted_password | string   | null: false |
+| nickname           | string   | null: false |
+| name               | string   | null: false |
+| Birthday           | date     | null: false |
 
 ### Association
 - has_many :items
@@ -24,6 +24,9 @@ Things you may want to cover:
 | Category     | string   | null: false |
 | price        | integer  | null: false |
 | Seller       | string   | null: false |
+| Description  | text     | null: false |
+| Details      | string   | null: false |
+| delivery     | string   | null: false |
 
 | image | Implemented with Active Storage | 
 
@@ -49,6 +52,7 @@ Things you may want to cover:
 | ---------------- | ---------- | ----------- |
 | Street address   | text       | null: false |
 | Delivery method  | text       | null: false |
+| credit card      | text       | null: false |
 
 ## Association
 - belongs_to :orders
