@@ -10,51 +10,77 @@ Things you may want to cover:
 | nickname           | string   | null: false |
 | name               | string   | null: false |
 | birthday           | date     | null: false |
-| last name          | string   | null: false |
-| given names        | string   | null: false |
-| last name furigana | string   | null: false |
-| given names furigana | string   | null: false |
+| last_name          | string   | null: false |
+| given_names        | string   | null: false |
+| last_name_furigana | string   | null: false |
+| given_names_furigana | string   | null: false |
 
 ### Association
 - has_many :items
-- has_one :orders
+- has_many :orders
 
 ## itemsテーブル
 
 * Database initialization
 | Column       | Type     | Options     |
 | ------------ | -------- | ----------- |
-| product name | string   | null: false |
-| category_id  | integer  | null: false |
+| product_name | string   | null: false |
+| category_id  | integer  | null: false, foreign_key: true |
 | price        | integer  | null: false |
-| seller_id    | integer  | null: false |
+| seller_id    | integer  | null: false, foreign_key: true |
 | description  | text     | null: false |
-| details_id   | integer  | null: false |
-| delivery_id  | integer  | null: false |
+| details_id   | integer  | null: false, foreign_key: true |
+| delivery_id  | integer  | null: false, foreign_key: true |
+| product_name        | text     | null: false |
+| description_of_item | text     | null: false |
+| product_price       | integer  | null: false |
+| product_condition   | text     | null: false |
+| shipping_charges    | integer  | null: false |
+| shipping_rea        | text     | null: false |
+| days_to_ship        | date     | null: false |
+| category            | text     | null: false |
 
 ### Association
-- has_many :users
-- has_one :orders
+- belongs_to :user
+- has_one :order
 
 ## historysテーブル
 
 | Column    | Type       | Options     |
 | --------- | ---------- | ----------- |
-| buy       | text       | null: false |
-| payment   | references | null: false |
+| buy       | text       | null: false, foreign_key: true |
+| payment   | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :users
-- belongs_to :items
-- has_one :domiciles
+- belongs_to :user
+- belongs_to :item
+- has_one :domicile
 
 ## domicilesテーブル
 
 | Column           | Type       | Options     |
 | ---------------- | ---------- | ----------- |
-| street address   | text       | null: false |
-| delivery method  | text       | null: false |
-| phone number     | text       | null: false |
+| street_address   | text       | null: false |
+| delivery_method  | text       | null: false |
+| phone_number     | text       | null: false |
+| postal_code      | string     | null: false |
+| prefectures      | string     | null: false |
+| municipality     | string     | null: false |
+| address          | string     | null: false |
+| building_name    | string     | null: false |
+| phone_number     | string     | null: false |
 
 ## Association
-- belongs_to :orders
+- belongs_to :order
+
+## messagesテーブル
+| Column    | Type           | Options                        |
+| --------- | -------------- | ------------------------------ |
+| comment   | string         |
+| user      | references     | null: false, foreign_key: true |
+| item      | references     | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :item
+
