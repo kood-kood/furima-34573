@@ -1,10 +1,6 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
-  </div>
   
   <div class="field">
     <%= f.label :email %><br />
@@ -16,36 +12,6 @@
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-  
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :given_names %><br />
-    <%= f.text_field :given_names, autofocus: true, autocomplete: "given_names" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name_furigana %><br />
-    <%= f.text_field :last_name_furigana, autofocus: true, autocomplete: "last_name_furigana" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :given_names_furigana %><br />
-    <%= f.text_field :given_names_furigana, autofocus: true, autocomplete: "given_names_furigana" %>
-  </div>
-
-  <div class="field">
-      <%= f.label :birthday %><br />
-      <%= f.date_select :birthday, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)%>
 
 
   <div class="actions">
