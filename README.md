@@ -14,7 +14,6 @@ Things you may want to cover:
 | last_name_furigana | string   | null: false |
 | given_names_furigana | string   | null: false |
 
-
 ### Association
 - has_many :items
 - has_many :histories
@@ -24,7 +23,7 @@ Things you may want to cover:
 * Database initialization
 | Column               | Type     | Options     |
 | -------------------- | -------- | ----------- |
-| product_name         | references | null: false, foreign_key: true |
+| product_name         | string   | null: false, foreign_key: true |
 | price                | integer  | null: false |
 | description          | text     | null: false |
 | product_condition_id | integer  | null: false | 
@@ -33,7 +32,7 @@ Things you may want to cover:
 | days_to_ship_id      | integer  | null: false |
 | category_id          | integer  | null: false |
 
-| nickname_id          | integer  | null: false |
+| user_id              | integer  | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -43,7 +42,8 @@ Things you may want to cover:
 
 | Column    | Type       | Options     |
 | --------- | ---------- | ----------- |
-| payment   | references | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -57,10 +57,11 @@ Things you may want to cover:
 | address          | string     | null: false |
 | phone_number     | string     | null: false |
 | postal_code      | string     | null: false |
-| shipping_rea_id  | references | null: false, foreign_key: true |
+| shipping_rea_id  | integer    | null: false |
 | municipality     | string     | null: false |
 | building_name    | string     |
-| payment_id       | references | null: false, foreign_key: true |
+
+| history          | references | null: false, foreign_key: true |
 
 ## Association
 - belongs_to :history
