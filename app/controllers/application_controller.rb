@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:birthday])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:given_names])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name_furigana])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:given_names_furigana])
   end
 
   def basic_auth
