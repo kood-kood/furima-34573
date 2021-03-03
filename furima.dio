@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-03-03T01:55:43.368Z" agent="5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="hjN9q-deuyX29WgDkccf" version="14.2.4" type="embed">
+<mxfile host="65bd71144e" modified="2021-03-03T02:09:13.127Z" agent="5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="0NWYZAv_57rAnWxz0vC5" version="14.2.4" type="embed">
     <diagram id="iNz2Ei_-lWCGaTxSvaLR" name="ページ1">
-        <mxGraphModel dx="482" dy="1689" grid="1" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="312" dy="1689" grid="1" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -30,7 +30,7 @@
                 <mxCell id="8" value="  - category_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="6" vertex="1">
                     <mxGeometry y="60" width="180" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="   - price&#10;&#10;   - description&#10;&#10;    - product_condition_id&#10;&#10;    - shipping_charges_id&#10;&#10;    - shipping_rea_id&#10;&#10;    - days_to_ship_id&#10;&#10;   - user_id&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="6" vertex="1">
+                <mxCell id="9" value="   - price&#10;&#10;   - description&#10;&#10;    - product_condition_id&#10;&#10;    - shipping_charges_id&#10;&#10;    - shipping_area_id&#10;&#10;    - days_to_ship_id&#10;&#10;   - user_id&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontColor=#666666;" parent="6" vertex="1">
                     <mxGeometry y="90" width="180" height="190" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="histories" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontColor=#999999;" parent="1" vertex="1">
@@ -42,7 +42,7 @@
                 <mxCell id="14" value="domiciles" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="440" y="495" width="160" height="220" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" value="   - phone_number&#10;&#10;   - postal_code&#10;&#10;   - shipping_rea_id&#10;&#10;   - municipality&#10;&#10;   - address &#10;&#10;  - building_name&#10;&#10;  - history" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="14" vertex="1">
+                <mxCell id="15" value="   - phone_number&#10;&#10;   - postal_code&#10;&#10;   - shipping_area_id&#10;&#10;   - municipality&#10;&#10;   - address &#10;&#10;  - building_name&#10;&#10;  - history" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontColor=#666666;" parent="14" vertex="1">
                     <mxGeometry y="26" width="160" height="194" as="geometry"/>
                 </mxCell>
                 <mxCell id="52" value="user_items" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
