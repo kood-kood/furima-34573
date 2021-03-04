@@ -19,5 +19,3 @@ class User < ApplicationRecord
   validates :last_name_furigana,:given_names_furigana,format:{with: /[ァ-ヶー]/}
   end
 end
-
-# validates :encrypted_password,:password,:password_confirmation,length:{minimum:7},format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/}
