@@ -60,19 +60,37 @@ RSpec.describe User, type: :model do
      another_user.valid?
      expect(another_user.errors.full_messages).to include("メールアドレスは既に使用されています。")
     end
+    it 'emailに@が含まれていなければ登録できないこと' do
+      @user.email = 'sample.com'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("メールアドレスは有効でありません。")
+    end
 
     it 'passwordが5文字以下であれば登録できないこと' do
      @user.password = '12345'
      @user.password_confirmation = '12345'
      @user.valid?
-     expect(@user.errors.full_messages).to include("パスワードは6文字以上に設定して下さい。", "パスワードは有効でありません。", "確認用パスワードは有効でありません。")
+     expect(@user.errors.full_messages).to include("パスワードは6文字以上に設定して下さい。", "パスワードは有効でありません。")
     end
     it 'passwordとpassword_confirmationが不一致では登録できないこと' do
      @user.password = '123456'
      @user.password_confirmation = '1234567'
      @user.valid?
-     expect(@user.errors.full_messages).to include("確認用パスワードが内容とあっていません。", "確認用パスワードは有効でありません。", "パスワードは有効でありません。")
+     expect(@user.errors.full_messages).to include("確認用パスワードが内容とあっていません。", "パスワードは有効でありません。")
     end
+
+    it 'passwordが半角英字だけでは登録ができないこと' do
+      @user.password = 'iiiiii'
+      @user.password_confirmation = 'iiiiii'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("パスワードは有効でありません。")
+     end
+     it 'passwordが半角数字だけでは登録ができないこと' do
+      @user.password = '999999'
+      @user.password_confirmation = '999999'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("パスワードは有効でありません。")
+     end
 
     it 'last_nameが全角入力でなければ登録できないこと' do
      @user.last_name = 'ｱｲｳｴｵ'
