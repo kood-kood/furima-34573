@@ -3,6 +3,13 @@ class Item < ApplicationRecord
   belongs_to :user 
   has_one_attached :image    #imageカラムの保存を許可
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :product_condition
+  belongs_to :shipping_charge
+  belongs_to :shipping_area
+  belongs_to :days_to_ship
+  belongs_to :category
+
   with_options presence: true do
     validates :product_name
     validates :price

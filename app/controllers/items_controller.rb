@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if  @item.save
       redirect_to root_path
     else
       render :new
@@ -35,11 +35,11 @@ class ItemsController < ApplicationController
   # end
 
   def item_params
-    params.require(:item).permit(:content, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:content, :image, :product_name, :price, :description, :category, :product_condition, :shipping_charge, :shipping_area, :days_to_ship).merge(user_id: current_user.id)
   end
 
   # def article_params
-  #   params.require(:article).permit(:title,:text,:genre_id)
+  #   params.require(:item).permit(:user_id)
   # end
-  # 「title」「text」「genre_id」の情報を受け取るように設定
+  # 「user_id」の情報を受け取るように設定
 end
