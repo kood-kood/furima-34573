@@ -6,7 +6,7 @@ class CreateListings < ActiveRecord::Migration[6.0]
       t.string :shipping_charge    , null: false
       t.string :shipping_area      , null: false
       t.date   :days_to_ship       , null: false
-      t.integer :user_id           , null: false
+      t.integer :item_id           , null: false
       t.timestamps
     end
   end

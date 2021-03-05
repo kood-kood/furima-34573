@@ -19,17 +19,6 @@ class User < ApplicationRecord
     validates :last_name_furigana,:given_names_furigana,format:{with: /\A[ァ-ヶー]+\z/}
   end  
 
-  include ActiveHash::Associations
-  has_many :listings
-
-  with_options presence: true do
-    validates :category
-    validates :product_condition
-    validates :shipping_charge
-    validates :shipping_area
-    validates :days_to_ship
-  end
-
-  validates :listing_id, numericality: { other_than: 1 }
+ 
 
 end
