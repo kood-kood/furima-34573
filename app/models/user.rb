@@ -22,14 +22,14 @@ class User < ApplicationRecord
   include ActiveHash::Associations
   has_many :listings
 
-  # with_options presence: true do
-  #   validates :category
-  #   validates :product_condition
-  #   validates :shipping_charge
-  #   validates :shipping_area
-  #   validates :days_to_ship
-  # end
+  with_options presence: true do
+    validates :category
+    validates :product_condition
+    validates :shipping_charge
+    validates :shipping_area
+    validates :days_to_ship
+  end
 
-  # validates :listing_id, numericality: { other_than: 1 }
+  validates :listing_id, numericality: { other_than: 1 }
 
 end
