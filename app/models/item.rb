@@ -17,6 +17,6 @@ class Item < ApplicationRecord
     validates :days_to_ship
   end
 
-  validates :listing_id, numericality: { other_than: 1 }
+  validates :product_condition_id, numericality: { other_than: 1 }
 
 end
