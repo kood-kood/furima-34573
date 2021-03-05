@@ -64,5 +64,4 @@ gem 'pry-rails'
 gem 'devise'
 
 gem 'sprockets'
-
 gem 'rails-i18n'
