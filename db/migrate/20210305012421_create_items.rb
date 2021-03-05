@@ -13,5 +13,10 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.timestamps
     end
   end
-
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :product_condition
+  belongs_to :shipping_charge
+  belongs_to :shipping_area
+  belongs_to :days_to_ship
+  belongs_to :category
 end
