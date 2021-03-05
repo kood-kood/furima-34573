@@ -1,7 +1,6 @@
 class Item < ApplicationRecord
-
-  belongs_to :user 
-  has_one_attached :image    #imageカラムの保存を許可
+  belongs_to :user
+  has_one_attached :image    # imageカラムの保存を許可
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :product_condition
@@ -26,6 +25,5 @@ class Item < ApplicationRecord
   validates :shipping_area_id, numericality: { other_than: 1 }
   validates :days_to_ship_id, numericality: { other_than: 1 }
   validates :category_id, numericality: { other_than: 1 }
-    #ジャンルの選択が「--」の時は保存できないようにする
-
+  # ジャンルの選択が「--」の時は保存できないようにする
 end

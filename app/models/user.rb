@@ -14,11 +14,8 @@ class User < ApplicationRecord
   end
 
   with_options presence: true do
-    validates :password,format:{with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}+\z/}
-    validates :last_name,:given_names,format:{with: /\A[ぁ-んァ-ヶ一-龥々]+\z/}
-    validates :last_name_furigana,:given_names_furigana,format:{with: /\A[ァ-ヶー]+\z/}
-  end  
-
- 
-
+    validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}+\z/ }
+    validates :last_name, :given_names, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ }
+    validates :last_name_furigana, :given_names_furigana, format: { with: /\A[ァ-ヶー]+\z/ }
+  end
 end
