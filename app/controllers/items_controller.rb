@@ -16,6 +16,15 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
 
   private
 
@@ -29,4 +38,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:content, :image).merge(user_id: current_user.id)
   end
 
+  # def article_params
+  #   params.require(:article).permit(:title,:text,:genre_id)
+  # end
+  # 「title」「text」「genre_id」の情報を受け取るように設定
 end
