@@ -34,8 +34,7 @@ class ItemsController < ApplicationController
   # end
 
   def item_params
-    params.require(:item).permit(:content, :image, :product_name, :price, :description, :category, :product_condition,
-                                 :shipping_charge, :shipping_area, :days_to_ship).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :product_name, :price, :description, :category_id, :product_condition_id,:shipping_charge_id, :shipping_area_id, :days_to_ship_id).merge(user_id: current_user.id)
   end
 
   # def article_params
@@ -43,3 +42,6 @@ class ItemsController < ApplicationController
   # end
   # 「user_id」の情報を受け取るように設定
 end
+
+
+# :content,
