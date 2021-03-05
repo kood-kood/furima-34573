@@ -37,7 +37,7 @@ Things you may want to cover:
 | days_to_ship_id      | integer  | null: false |
 | category_id          | integer  | null: false |
 
-| user_id              | integer  | null: false, foreign_key: true |
+| user_id              | references  | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
