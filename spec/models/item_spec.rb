@@ -77,5 +77,3 @@ RSpec.describe Item, type: :model do
    end
   end
 end
-# nil
-# find("#tour_genre_id").find("option[value='1']").select_option

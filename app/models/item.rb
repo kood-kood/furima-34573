@@ -13,7 +13,6 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :image
     validates :product_name
-    # validates :price
     validates :description
     validates :category_id
     validates :product_condition_id
