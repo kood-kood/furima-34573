@@ -9,15 +9,18 @@ class Item < ApplicationRecord
   belongs_to :days_to_ship
   belongs_to :category
 
+
   with_options presence: true do
+    validates :image
     validates :product_name
-    validates :price
+    # validates :price
     validates :description
     validates :category
     validates :product_condition
     validates :shipping_charge
     validates :shipping_area
     validates :days_to_ship
+    validates  :price, format: { with: /\A[0-9]+\z/ }, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   end
 
   validates :product_condition_id, numericality: { other_than: 1 }
