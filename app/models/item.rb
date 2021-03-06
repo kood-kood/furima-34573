@@ -15,11 +15,11 @@ class Item < ApplicationRecord
     validates :product_name
     # validates :price
     validates :description
-    validates :category
-    validates :product_condition
-    validates :shipping_charge
-    validates :shipping_area
-    validates :days_to_ship
+    validates :category_id
+    validates :product_condition_id
+    validates :shipping_charge_id
+    validates :shipping_area_id
+    validates :days_to_ship_id
     validates  :price, format: { with: /\A[0-9]+\z/ }, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   end
 
