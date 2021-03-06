@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    # @items = Item.all
+    @items = Item.all.order(created_at: :desc)
   end
 
   def new
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   # end
 
   def item_params
-    params.require(:item).permit(:image, :product_name, :price, :description, :category_id, :product_condition_id,:shipping_charge_id, :shipping_area_id, :days_to_ship_id).merge(user_id: current_user.id)
+    params.require(:item).permit(:content,:image, :product_name, :price, :description, :category_id, :product_condition_id,:shipping_charge_id, :shipping_area_id, :days_to_ship_id).merge(user_id: current_user.id)
   end
 
   # def article_params
