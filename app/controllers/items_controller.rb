@@ -10,11 +10,11 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def show
-  end
+  # def show
+  # end
 
   def create
     @item = Item.new(item_params)
