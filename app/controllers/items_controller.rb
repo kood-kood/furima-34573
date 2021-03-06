@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  # before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :new, :show]
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   # end
 
   def show
-    @items = Items.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def create
