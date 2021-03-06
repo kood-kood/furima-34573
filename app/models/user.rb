@@ -18,4 +18,7 @@ class User < ApplicationRecord
     validates :last_name, :given_names, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ }
     validates :last_name_furigana, :given_names_furigana, format: { with: /\A[ァ-ヶー]+\z/ }
   end
+
+  has_many :items
+
 end
