@@ -16,7 +16,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_many :histories
+- has_many :orders
 
 ## itemsテーブル
 
@@ -36,9 +36,9 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- has_one :history
+- has_one :order
 
-## historiesテーブル
+## ordersテーブル
 
 | Column    | Type       | Options     |
 | --------- | ---------- | ----------- |
@@ -61,10 +61,10 @@ Things you may want to cover:
 | municipality     | string     | null: false |
 | building_name    | string     |
 
-| history          | references | null: false, foreign_key: true |
+| order          | references | null: false, foreign_key: true |
 
 ## Association
-- belongs_to :history
+- belongs_to :order
 
 ## messagesテーブル
 | Column    | Type           | Options                        |
