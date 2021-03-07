@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  # before_action :move_to_index, except: [:index, :show]
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
@@ -13,8 +12,9 @@ class ItemsController < ApplicationController
   # def edit
   # end
 
-  # def show
-  # end
+  def show
+    @item = Item.find(params[:id])
+  end
 
   def create
     @item = Item.new(item_params)
@@ -27,12 +27,6 @@ class ItemsController < ApplicationController
 
   private
 
-  # def move_to_index
-  #   unless user_signed_in?
-  #     redirect_to action: :index
-  #   end
-  # end
-
   def item_params
     params.require(:item).permit(:content,:image, :product_name, :price, :description, :category_id, :product_condition_id,:shipping_charge_id, :shipping_area_id, :days_to_ship_id).merge(user_id: current_user.id)
   end
@@ -42,6 +36,3 @@ class ItemsController < ApplicationController
   # end
   # 「user_id」の情報を受け取るように設定
 end
-
-
-# :content,
