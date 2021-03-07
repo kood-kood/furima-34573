@@ -43,6 +43,3 @@ class ItemsController < ApplicationController
   # end
   # 「user_id」の情報を受け取るように設定
 end
-
-
-# :content,
