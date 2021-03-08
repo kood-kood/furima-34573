@@ -41,14 +41,10 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:content,:image, :product_name, :price, :description, :category_id, :product_condition_id,:shipping_charge_id, :shipping_area_id, :days_to_ship_id).merge(user_id: current_user.id)
   end
 
-  def move_to_index
-    redirect_to new_user_session_path unless user_signed_in?
-  end
-
   def set_item
     @item = Item.find(params[:id])
    end
-   
+
   # def article_params
   #   params.require(:item).permit(:user_id)
   # end
