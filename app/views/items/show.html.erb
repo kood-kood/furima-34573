@@ -26,7 +26,8 @@
 
     <% if user_signed_in? %>
      <% if current_user.id == @item.user_id %>
-     <%= link_to "商品の編集", @edit_item_path, method: :get, class: "item-red-btn" %>
+     <%= link_to "商品の編集", edit_item_path(current_user), method: :get, class: "item-red-btn" %>
+      <%# (current_user)でログイン中のユーザーしか編集できない様にしたか確認する %>
       <p class="or-text">or</p>
      <%= link_to "削除", "#", method: :delete, class:"item-destroy" %>
        <% else %>
