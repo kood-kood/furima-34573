@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   # before_action :move_to_index, except: [:index, :show]
-  before_action :set_item, only: [:edit, :update, :show]
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
 
   def index
     @items = Item.all.order(created_at: :desc)
@@ -37,8 +37,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @tweet = Tweet.find(params[:id])
-    @tweet.destroy
+    if @item.destroy
+      redirect_to root_path
+    end
   end
 
 
