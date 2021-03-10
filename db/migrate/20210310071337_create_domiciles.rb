@@ -7,6 +7,7 @@ class CreateDomiciles < ActiveRecord::Migration[6.0]
       t.integer    :shipping_area_id,        null: false
       t.string     :municipality,            null: false, default: ""
       t.string     :building_name
+      t.references :order,    foreign_key: true
       t.timestamps
     end
   end
