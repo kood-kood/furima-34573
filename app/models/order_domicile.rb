@@ -25,7 +25,7 @@ class OrderDomicile
   validates :item_id, presence: true
 
   def save
-   item = Item.create(user_id: user_id, item_id: item_id, token: token)
+   item = Item.create(user_id: user_id, item_id: item_id)
     Address.create(address: address, phone_number: phone_number, postal_code: postal_code, shipping_area_id: shipping_area_id, municipality: municipality)
   end
 end
