@@ -1,2 +1,5 @@
 class Domicile < ApplicationRecord
+
+
+  belongs_to :order
 end

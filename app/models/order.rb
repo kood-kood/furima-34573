@@ -30,7 +30,8 @@ class Order
   end
 
 
- 
-  # has_one :domicile
+  belongs_to :user
+  belongs_to :item
+  has_one :domicile
 
 end
