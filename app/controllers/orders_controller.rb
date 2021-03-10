@@ -7,8 +7,13 @@ class OrdersController < ApplicationController
   def create
     binding.pry
     @order = Order.new(order_params)
-    binding.pry
     if @order.valid?
+      Payjp.api_key = "sk_test_b84679cb4ec2c4debf6068a4"
+      Payjp::Charge.create(
+        amount: order_params[:price],
+        card: order_params[:token],
+        currency: 'jpy'
+      )
       @order.save
       return redirect_to root_path
     else
