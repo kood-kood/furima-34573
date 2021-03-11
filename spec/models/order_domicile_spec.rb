@@ -61,7 +61,12 @@ RSpec.describe OrderDomicile, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Phone numberは11文字以下に設定して下さい。")
       end
-            
+      it '電話番号は英数混合では登録できないこと' do
+        @order.phone_number = '080123456aa'
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Name can't be blank")
+      end
+  
     end
 
   end
