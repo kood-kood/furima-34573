@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_item, only: [:edit, :update, :show, :destroy]
   before_action :tamper_prevention, only: [:edit, :update, :destroy]
+  before_action :move_to_page, only: [:edit, :update]
 
   def index
     @items = Item.all.order(created_at: :desc)
@@ -12,15 +13,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.order.present?
-      redirect_to root_path 
-    end
   end
 
   def update
-   if @item.order.present?
-    redirect_to root_path 
-   elsif @item.update(item_params)
+    if @item.update(item_params)
       redirect_to item_path 
     else
       render :edit
@@ -58,6 +54,12 @@ class ItemsController < ApplicationController
 
    def tamper_prevention
     redirect_to root_path unless current_user.id == @item.user_id
+   end
+
+   def move_to_page
+    if @item.order.present?
+      redirect_to root_path 
+    end
    end
 
 end
