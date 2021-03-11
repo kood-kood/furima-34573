@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @order = OrderDomicile.new
     @item = Item.find(params[:item_id])
