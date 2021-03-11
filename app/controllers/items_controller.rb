@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  # before_action :move_to_index, except: [:index, :show]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_item, only: [:edit, :update, :show, :destroy]
   before_action :tamper_prevention, only: [:edit, :update, :destroy]
+  before_action :move_to_page, only: [:edit, :update]
 
   def index
     @items = Item.all.order(created_at: :desc)
@@ -56,8 +56,10 @@ class ItemsController < ApplicationController
     redirect_to root_path unless current_user.id == @item.user_id
    end
 
-  # def article_params
-  #   params.require(:item).permit(:user_id)
-  # end
-  # 「user_id」の情報を受け取るように設定
+   def move_to_page
+    if @item.order.present?
+      redirect_to root_path 
+    end
+   end
+
 end
