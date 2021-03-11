@@ -50,7 +50,6 @@ RSpec.describe OrderDomicile, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Phone numberが入力されていません。", "Phone numberは有効でありません。")
       end
-     
       it '郵便番号にハイフンが含まれていなければ登録できないこと' do
         @user.email = '1234567'
         @user.valid?
@@ -61,11 +60,23 @@ RSpec.describe OrderDomicile, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Phone numberは11文字以下に設定して下さい。")
       end
+
       it '電話番号は英数混合では登録できないこと' do
         @order.phone_number = '080123456aa'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Name can't be blank")
+        expect(@order.errors.full_messages).to include("Phone numberは有効でありません。")
       end
+      it 'user_idが空では購入できないこと' do
+        @order.user_id = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Userが入力されていません。")
+      end
+      it 'item_idが空では購入できないこと' do
+        @order.item_id = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Itemが入力されていません。")
+      end
+  
   
     end
 
