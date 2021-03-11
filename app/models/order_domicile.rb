@@ -12,7 +12,7 @@ class OrderDomicile
   validates :user_id, presence: true
   validates :item_id, presence: true
 
-  # validates :shipping_area_id, numericality: { other_than: 1 }
+  validates :shipping_area_id, numericality: { other_than: 1 }
 
   def save
    order = Order.create(user_id: user_id, item_id: item_id)
