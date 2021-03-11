@@ -13,6 +13,10 @@ RSpec.describe OrderDomicile, type: :model do
       it '全ての項目の入力が存在すれば購入できること' do
         expect(@order).to be_valid
       end
+      it '建物番号は空でも登録できること' do
+        @order.building_name = ''
+        expect(@order).to be_valid
+      end  
     end
 
     context '商品が購入できない時' do
