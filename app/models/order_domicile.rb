@@ -3,7 +3,6 @@ class OrderDomicile
 
   attr_accessor :token, :address, :phone_number, :postal_code, :shipping_area_id, :municipality, :building_name, :user_id, :item_id
 
-  # ここにバリデーションの処理を書く
   with_options presence: true do
    validates :token
    validates :address, length: { maximum: 10 }
