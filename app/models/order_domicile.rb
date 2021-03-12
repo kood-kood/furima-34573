@@ -7,7 +7,7 @@ class OrderDomicile
    validates :token
    validates :address, length: { maximum: 10 }
    validates :phone_number, length: { maximum: 11 }, format: { with: /\A[0-9][\d{10,11}]+\z/ }
-   validates :postal_code, length: { maximum: 10 }, format: { with: /\A[0-9][\d{3}[-]\d{4}]+\z/ }
+   validates :postal_code, length: { maximum: 10 }, format: { with: /\A[0-9]+|\d{3}[-]\d{4}\z/ }
    validates :municipality
    validates :user_id
    validates :item_id
@@ -20,3 +20,6 @@ class OrderDomicile
     Domicile.create(address: address, phone_number: phone_number, postal_code: postal_code, shipping_area_id: shipping_area_id, municipality: municipality, order_id: order.id)
   end
 end
+
+postal_code
+/\A\d{3}[-]\d{4}\z/
