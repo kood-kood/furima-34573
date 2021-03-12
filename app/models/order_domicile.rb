@@ -7,7 +7,7 @@ class OrderDomicile
    validates :token
    validates :address, length: { maximum: 10 }
    validates :phone_number, length: { maximum: 11 }, format: { with: /\A[0-9][\d{10,11}]+\z/ }
-   validates :postal_code, length: { maximum: 10 }, format: { with: /\A[0-9]+|\d{3}[-]\d{4}\z/ }
+   validates :postal_code, length: { maximum: 10 }, format: { with: /\A[0-9]{3}-[0-9]{4}\z/ }
    validates :municipality
    validates :user_id
    validates :item_id
@@ -21,5 +21,3 @@ class OrderDomicile
   end
 end
 
-postal_code
-/\A\d{3}[-]\d{4}\z/
