@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+
+attr_accessor :keyword
+
   belongs_to :user
   has_one :order
   has_one_attached :image    # imageカラムの保存を許可
@@ -28,8 +31,8 @@ class Item < ApplicationRecord
  end
 
  def self.search(search)
-  if search != ""
-    Item.where('text LIKE(?)', "%#{search}%")
+  if search 
+    Item.where(['product_name LIKE ?', "%#{search}%"])
   else
     Item.all
   end

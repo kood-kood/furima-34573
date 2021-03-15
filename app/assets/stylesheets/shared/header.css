@@ -43,6 +43,7 @@
 
 .search-icon {
   width: 100%;
+  /* background-image: url("../images/search.png") */
 }
 
 .nav {
@@ -101,4 +102,8 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+}
+
+.hidden {
+  display: none;
 }
