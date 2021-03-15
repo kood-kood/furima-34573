@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :search]
   before_action :set_item, only: [:edit, :update, :show, :destroy]
   before_action :tamper_prevention, only: [:edit, :update, :destroy]
   before_action :move_to_page, only: [:edit, :update]
@@ -39,6 +39,10 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     end
+  end
+
+  def search
+    @items = Item.search(params[:keyword])
   end
 
 

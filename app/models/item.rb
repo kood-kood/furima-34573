@@ -26,4 +26,13 @@ class Item < ApplicationRecord
   validates :category_id
   # ジャンルの選択が「--」の時は保存できないようにする
  end
+
+ def self.search(search)
+  if search != ""
+    Item.where('text LIKE(?)', "%#{search}%")
+  else
+    Item.all
+  end
+ end
+
 end
