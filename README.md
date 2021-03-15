@@ -17,6 +17,7 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_many :orders
+- has_many :searchers
 
 ## itemsテーブル
 
@@ -37,6 +38,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - has_one :order
+- belongs_to :search
 
 ## ordersテーブル
 
@@ -66,6 +68,9 @@ Things you may want to cover:
 ## Association
 - belongs_to :order
 
+
+
+
 ## messagesテーブル
 | Column    | Type           | Options                        |
 | --------- | -------------- | ------------------------------ |
@@ -76,3 +81,15 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
+
+
+## searchersテーブル
+| Column    | Type           | Options                        |
+| --------- | -------------- | ------------------------------ |
+| user      | references     | null: false, foreign_key: true |
+| item      | references     | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- has_many :items
+
