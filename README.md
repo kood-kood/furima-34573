@@ -18,6 +18,7 @@ Things you may want to cover:
 - has_many :items
 - has_many :orders
 - has_many :searchers
+- has_many :messages, dependent: :destroy
 
 ## itemsテーブル
 
@@ -39,6 +40,7 @@ Things you may want to cover:
 - belongs_to :user
 - has_one :order
 - belongs_to :search
+- has_many :messages, dependent: :destroy
 
 ## ordersテーブル
 
