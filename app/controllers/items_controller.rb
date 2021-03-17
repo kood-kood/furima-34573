@@ -24,6 +24,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @message = Message.new
+    @messages = @item.messages.order(created_at: :desc)
   end
 
   def create
