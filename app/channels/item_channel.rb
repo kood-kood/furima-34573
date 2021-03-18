@@ -1,9 +1,12 @@
-class MessageChannel < ApplicationCable::Channel
+class ItemChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "message_channel"
+    stream_from "item_channel"
   end
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
+  end
+
+  def speak
   end
 end

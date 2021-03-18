@@ -1,18 +1,21 @@
 class MessagesController < ApplicationController
+  def new
+    @messages = Message.all
+    @message = Message.new
+  end
 
   def create
-    @item = Item.find(params[:item_id])
-    message = Message.new(message_params)
-    if message.save
-      redirect_to item_path(@item)
-    else
-      flash.now[:alert] = 'コメントを入力してください。'
+    @message = Message.new(message_params)
+    # binding.pry
+    if @message.save
+      ActionCable.server.broadcast 'item_channel', content:@message,user:@message.user
     end
   end
 
   private
+
   def message_params
-    params.require(:message).permit(:string).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.require(:message).permit(:text).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 
 end

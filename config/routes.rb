@@ -9,9 +9,12 @@ Rails.application.routes.draw do
       get 'search'
     end
     resources :orders, only: [:index, :create]
-    resources :messages, only: :create
+    root 'messages#new'
+    resources :messages, only: [:create]
   end
 
   # resources :users, only: :show
+
+  # mount ActionCable.server => '/cable'
 
 end
