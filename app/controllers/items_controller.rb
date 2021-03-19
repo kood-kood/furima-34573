@@ -4,8 +4,6 @@ class ItemsController < ApplicationController
   before_action :tamper_prevention, only: [:edit, :update, :destroy]
   before_action :move_to_page, only: [:edit, :update]
 
-  before_action :search_item, only: [:index, :search]
-
 
   def index
     @items = Item.all.order(created_at: :desc)
@@ -27,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.all
     @messages = Message.all
     @message = Message.new
   end
@@ -52,16 +51,10 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.search(params[:keyword])
-    @results = @p.result.includes(:classification)  # 検索条件にマッチした商品の情報を取得
-
   end
 
 
   private
-
-  def search_item
-    @p = Item.ransack(params[:q])  # 検索オブジェクトを生成
-  end
 
 
   def item_params
@@ -69,7 +62,7 @@ class ItemsController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:text).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.permit(:text).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 
   def set_item
