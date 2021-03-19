@@ -59,9 +59,10 @@ class ItemsController < ApplicationController
 
   private
 
-  def search_product
+  def search_item
     @p = Item.ransack(params[:q])  # 検索オブジェクトを生成
   end
+
 
   def item_params
     params.require(:item).permit(:keyword, :content,:image, :product_name, :price, :description, :category_id, :product_condition_id,:shipping_charge_id, :shipping_area_id, :days_to_ship_id).merge(user_id: current_user.id)
