@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'classifications/index'
+  get 'classifications/search'
   devise_for :users
 
   root to: 'items#index'
@@ -11,10 +13,14 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :create]
     root 'messages#new'
     resources :messages, only: [:create]
+    
+    resources :classifications, only: [:index]
+      collection do
+        get 'classifications/search'
+      end
   end
 
   # resources :users, only: :show
 
-  # mount ActionCable.server => '/cable'
-
 end
+
