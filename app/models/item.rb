@@ -6,6 +6,7 @@ attr_accessor :keyword
   has_one :order
   has_one_attached :image    # imageカラムの保存を許可
   has_many :messages, dependent: :destroy
+  belongs_to :category
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :product_condition
