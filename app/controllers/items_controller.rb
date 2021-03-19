@@ -4,6 +4,9 @@ class ItemsController < ApplicationController
   before_action :tamper_prevention, only: [:edit, :update, :destroy]
   before_action :move_to_page, only: [:edit, :update]
 
+  before_action :search_item, only: [:index, :search]
+
+
   def index
     @items = Item.all.order(created_at: :desc)
   end
@@ -35,7 +38,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-    # binding.pry
     @message = Message.new(message_params)
     if @message.save
       ActionCable.server.broadcast 'item_channel', content: @message
@@ -50,10 +52,16 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.search(params[:keyword])
+    @results = @p.result.includes(:classification)  # 検索条件にマッチした商品の情報を取得
+
   end
 
 
   private
+
+  def search_product
+    @p = Item.ransack(params[:q])  # 検索オブジェクトを生成
+  end
 
   def item_params
     params.require(:item).permit(:keyword, :content,:image, :product_name, :price, :description, :category_id, :product_condition_id,:shipping_charge_id, :shipping_area_id, :days_to_ship_id).merge(user_id: current_user.id)
