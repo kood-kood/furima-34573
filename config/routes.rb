@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   end
 
-  resources :memos, only: [:index, :create]
+  resources :memos, only: [:index, :new, :create]
   # resources :users, only: :show
 
 end
