@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       collection do
         get 'classifications/search'
       end
+
+      resources :memos, only: [:index, :create]
   end
 
   # resources :users, only: :show
