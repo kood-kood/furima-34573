@@ -12,9 +12,9 @@ class MemosController < ApplicationController
 
   def create
     @memo = Memo.new(memo_params)
-    # if @memo.save
-    #   ActionCable.server.broadcast 'memo_channel', content: @memo
-    # end
+    if @memo.save
+      ActionCable.server.broadcast 'memo_channel', content: @memo
+    end
   end
 
 end

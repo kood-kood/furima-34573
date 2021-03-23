@@ -43,4 +43,8 @@
 <br> 
 <%= link_to 'トップページへ戻る', root_path %>
 
+   <%= link_to(memos_path, class: 'memo-btn') do %>
+     <span class='memo-btn-text'>メモ</span>
+   <% end %>
+   
 <%= render "shared/footer" %>
