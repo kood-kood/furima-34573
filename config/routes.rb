@@ -19,9 +19,9 @@ Rails.application.routes.draw do
         get 'classifications/search'
       end
 
-      resources :memos, only: [:index, :create]
   end
 
+  resources :memos, only: [:index, :create]
   # resources :users, only: :show
 
 end
