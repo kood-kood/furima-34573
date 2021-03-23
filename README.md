@@ -19,6 +19,7 @@ Things you may want to cover:
 - has_many :orders
 - has_many :searchers
 - has_many :messages, dependent: :destroy
+- has_many :memos
 
 ## itemsテーブル
 
@@ -95,3 +96,11 @@ Things you may want to cover:
 - belongs_to :user
 - has_many :items
 
+
+## memosテーブル
+| Column    | Type           | Options                        |
+| --------- | -------------- | ------------------------------ |
+| note      | text           | null: false                    |
+
+### Association
+- belongs_to :user
