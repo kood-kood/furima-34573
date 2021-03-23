@@ -1,0 +1,41 @@
+<div class="memos-contents">
+  <header class="memos-header">
+    <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
+  </header>
+
+   <div class="memos-main">
+    <h2 class="memos-title">メモ</h2>
+      <%= form_with model: @memo do |f| %>
+      <%= f.text_area :memo, size: "48x5", class:"meno-text" %>
+      <%= f.submit '保存', class:"save-button"%>
+      <% end %>
+
+    <div id='memos'>
+      <% @memos.reverse_each do |m| %>
+      <p><%= m.text %></p>
+      <% end %>
+    </div>
+   </div>
+
+<div class="menos-exit">
+  <%= link_to 'トップページへ戻る', root_path %>
+</div> 
+
+<footer class="memos-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">フリマ利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
+    <p class="inc">
+      ©︎Furima,Inc.
+    </p>
+  </footer>
+
+</div>
+
+
+
+
+
