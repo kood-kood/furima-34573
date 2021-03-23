@@ -1,0 +1,25 @@
+.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+  padding: 20px 10px 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.searchs-footer {
+  background-color: #f5f5f5;
+  /* width: 60vw; */
+  padding: 3ch 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchs-footer>.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 3vh 0;
+}

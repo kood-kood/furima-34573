@@ -1,62 +1,54 @@
 <%= render "shared/header" %>
-<div class='main'>
 
-   <div class='title-contents'>
-    <h2 class='service-title'>
-      人生を変えるフリマアプリ
-    </h2>
-    <p class='service-explain'>
-      FURIMAはだれでもかんたんに出品・購入できる
-    </p>
-    <p class='service-explain'>
-      フリマアプリです
-    </p>
-    <div class='store-btn'>
-      <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
-      <%= link_to image_tag("dl-android.png", class:"google-btn"), "#" %>
-    </div>
-   </div>
-
-<h2 class='title'>
-  検索結果
-</h2>
-
-
-    <ul class='item-lists'>
-     <% @items.each do |item| %>   
-       
-      <li class='list'>
-        <%= link_to item_path(item.id), method: :get do %>
-        <div class='item-img-content'>
+  <div class='main'>
+       <h2 class='title'>
+          検索結果
+       </h2>
+      <ul class='item-lists'>
+         <% @items.each do |item| %>   
+       <li class='list'>
+          <%= link_to item_path(item.id), method: :get do %>
+         <div class='item-img-content'>
            <%= image_tag item.image, class: "item-img" if item.image.attached? %> 
-          
-          <% if item.order.present? %>
-           <div class='sold-out'>
-            <span>Sold Out!!</span>
-           </div>
-          <% end %> 
-
-        </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= item.product_name %>
-          </h3>
-          <div class='item-price'>
-            <span><%= item.price %>円<br><%= item.shipping_charge.name %></span>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+           <% if item.order.present? %>
+            <div class='sold-out'>
+              <span>Sold Out!!</span>
+            </div>
+           <% end %> 
+         </div>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              <%= item.product_name %>
+            </h3>
+            <div class='item-price'>
+                <span><%= item.price %>円<br><%= item.shipping_charge.name %></span>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
             </div>
           </div>
-        </div>
-        <% end %>
-       </li>
+          <% end %>
+      </li>
        <% end %>
-    </div>
-</div>
+  </div>
+
+    <footer class="searchs-footer">
+       <div class="menos-exit">
+         <%= link_to 'トップページへ戻る', root_path %>
+        </div> 
+      <ul class="menu">
+       <li><a href="#">プライバシーポリシー</a></li>
+       <li><a href="#">フリマ利用規約</a></li>
+       <li><a href="#">特定商取引に関する表記</a></li>
+      </ul>
+      <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
+     <p class="inc">
+       ©︎Furima,Inc.
+     </p>
+    </footer>
 
 <%= link_to(memos_path, class: 'memo-btn') do %>
   <span class='memo-btn-text'>メモ</span>
 <% end %>
 
-<%= render "shared/footer" %>
