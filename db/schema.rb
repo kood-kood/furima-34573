@@ -70,9 +70,11 @@ ActiveRecord::Schema.define(version: 2021_03_23_032803) do
   end
 
   create_table "memos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "memo"
+    t.text "memo", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_memos_on_user_id"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -116,6 +118,7 @@ ActiveRecord::Schema.define(version: 2021_03_23_032803) do
   add_foreign_key "classifications", "items"
   add_foreign_key "domiciles", "orders"
   add_foreign_key "items", "users"
+  add_foreign_key "memos", "users"
   add_foreign_key "messages", "items"
   add_foreign_key "messages", "users"
   add_foreign_key "orders", "items"
