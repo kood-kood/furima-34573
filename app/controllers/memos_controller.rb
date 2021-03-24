@@ -17,4 +17,12 @@ class MemosController < ApplicationController
     end
   end
 
+  private
+
+  def memo_params
+    params.permit(:memo)
+  end
+
 end
+
+# , item_id: params[:item_id]
