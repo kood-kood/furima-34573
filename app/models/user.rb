@@ -22,6 +22,6 @@ class User < ApplicationRecord
   has_many :items
   has_many :orders
   has_many :messages, dependent: :destroy
-  has_many :memos
+  belongs_to :memo
 
 end
