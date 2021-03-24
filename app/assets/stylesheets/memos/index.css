@@ -57,7 +57,7 @@
 
 .save-button{
   padding: 5px 50px 5px 50px;
-  margin: 10px 10px 10px 20px;
+  margin: 10px 10px 50px 20px;
   background-color: #4ef097;
   border: none;
 }
@@ -82,4 +82,19 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: 3vh 0;
+}
+
+.show-notes{
+  font-size: 25px;
+  margin: 0px 0px 5px 0px;
+  display: flex;
+  justify-content: flex-start; 
+}
+
+.memo-date{
+  color:rgb(161, 156, 156);
+  margin: 0px 0px 10px 0px;
+  text-decoration: underline;
+  display: flex;
+  justify-content: flex-start; 
 }
