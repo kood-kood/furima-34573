@@ -2,7 +2,7 @@ class MemosController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :create]
 
   def index
-    @memos = Memo.all.order(created_at: :desc)
+    @memos = Memo.all.order(created_at: :ASC)
   end
 
    def new
