@@ -1,6 +1,6 @@
 class Memo < ApplicationRecord
 
-  # belongs_to :user
+  has_many :users
 
   validates :memo, presence: true
 
