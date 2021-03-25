@@ -114,4 +114,8 @@ Rails.application.configure do
   config.action_cable.url = "wss://furima-34573.herokuapp.com/cable" 
   config.action_cable.allowed_request_origins = ['https://furima-34573.herokuapp.com', 'http://furima-34573.herokuapp.com']
 
+  ActionCable.server.config.disable_request_forgery_protection = true
+  config.action_cable.url = "ws://54.168.82.120/cable" 
+  config.action_cable.allowed_request_origins = ['http://54.168.82.120']
+
 end
