@@ -10,15 +10,18 @@ consumer.subscriptions.create("MemoChannel", {
   },
 
   received(data) {
-    console.log(data)
+    // document.getElementById('memo-container').
+    //   insertAdjacentHTML('beforeend', data['memo'])
+    // memoContainer.insertAdjacentHTML('beforeend', data['memo'])
+    // console.log(data)
     const html = `<div class="memo-list">
                        <div class="show-notes"><p>${data.content.memo}</p></div>
                        <div class="memo-date"><p>${data.content.created_at}</p></div>
                   </div>`;
     const memos = document.getElementById('memos');
-    console.log(memos)
     const newMemo = document.getElementById('memo_memo');
     memos.insertAdjacentHTML('afterbegin', html);
     newMemo.value='';
   }
-});
+ });
+

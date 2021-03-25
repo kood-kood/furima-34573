@@ -3,6 +3,7 @@ class MemosController < ApplicationController
 
   def index
     @memos = Memo.all.order(created_at: :ASC)
+    @memo = Memo.new
   end
 
    def new
@@ -13,16 +14,23 @@ class MemosController < ApplicationController
   def create
     @memo = Memo.new(memo_params)
     if @memo.save
+      # redirect_to memos_path
       ActionCable.server.broadcast 'memo_channel', content: @memo
     end
   end
 
-  private
+  def destroy
+    @memos = Memo.find(params[:id])
+    if @memos.destroy
+      redirect_to memos_path
+    end
+  end
+
+private
 
   def memo_params
-    params.permit(:memo)
+    params.require(:memo).permit(:memo).merge(user_id: current_user.id)
   end
 
 end
-
-# , item_id: params[:item_id]
+# room = Room.find(params[:id])

@@ -11,12 +11,23 @@
       <% end %>
 
     <div id='memos'>
-      <% @memos.reverse_each do |m| %>
-      <p><%= m.text %></p>
+      <% @memos.reverse_each do |memo| %>
+         <% if current_user.id == memo.user_id %> 
+           <div class="memo-list">
+            <div class="show-notes">
+              <p><%= memo.memo %></p>
+            </div>
+            <div class="memo-date">
+              <p><%= l memo.created_at, format: :short %></p>
+              <p><%= link_to '削除', memo_path(memo.id) , method: :delete %></p>
+            </div>
+           </div>
+         <% end %> 
       <% end %>
     </div>
    </div>
 
+<%# "/memos/#{@memo.id}"  memo_path(@memos)%>
 <div class="menos-exit">
   <%= link_to 'トップページへ戻る', root_path %>
 </div> 

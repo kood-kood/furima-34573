@@ -87,3 +87,6 @@ gem "aws-sdk-s3", require: false
 
 gem 'ransack'
 
+# 日本語化
+gem 'devise-i18n'
+
