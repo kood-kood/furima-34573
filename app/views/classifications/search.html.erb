@@ -1,9 +1,12 @@
+<%= render "shared/second-header"%>
 
-<h1>
-  検索結果
-</h1>
+   <div class='category-results'>
+     <h1>
+       検索結果
+     </h1>
+   </div>
 
-<br> 
+<div class='category-results-lists'>
   <% if @results[0] != nil %>
     <ul class='item-lists'>
      <% @results.each do |item| %>   
@@ -39,9 +42,9 @@
   <% else %>
        該当する商品はありません 
   <% end %>
+</div>
 
-<br> 
-<%= link_to 'トップページへ戻る', root_path %>
+<%= link_to 'トップページへ戻る', root_path, class:"to-the-top" %>
 
    <%= link_to(memos_path, class: 'memo-btn') do %>
      <span class='memo-btn-text'>メモ</span>

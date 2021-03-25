@@ -1,0 +1,22 @@
+.category{
+  font-size: 30px;
+  padding: 20px 0px 20px 0px;
+  display: flex;
+  justify-content: center; 
+}
+
+.category-selection{
+  font-size: 20px;
+  padding: 0px 0px 0px 0px;
+  display: flex;
+  justify-content: center; 
+}
+
+.category-btn{
+  font-size: 20px;
+  padding: 0px 20px 0px 20px;
+  margin: 0px 0px 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

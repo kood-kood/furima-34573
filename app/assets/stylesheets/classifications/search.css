@@ -1,0 +1,16 @@
+.category-results{
+  font-size: 30px;
+  padding: 20px 0px 20px 0px;
+  display: flex;
+  justify-content: center; 
+}
+
+.category-results-lists{
+
+}
+
+.to-the-top{
+  padding: 0px 0px 30px 0px;
+  display: flex;
+  justify-content: center; 
+}
