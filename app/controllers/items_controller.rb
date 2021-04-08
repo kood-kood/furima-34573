@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :show, :destroy]
   before_action :tamper_prevention, only: [:edit, :update, :destroy]
   before_action :move_to_page, only: [:edit, :update]
+  before_action :search_item, only: [:index, :search]
 
 
   def index
@@ -51,6 +52,7 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.search(params[:keyword])
+    @results = @p.result
   end
 
 
@@ -78,5 +80,9 @@ class ItemsController < ApplicationController
       redirect_to root_path 
     end
    end
+
+   def search_item
+    @p = Item.ransack(params[:q])  
+  end
 
 end

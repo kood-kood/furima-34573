@@ -1,35 +1,49 @@
 <%= render "shared/header" %>
 
-  <div class='main'>
+     <div class='main'>
        <h2 class='title'>
           検索結果
        </h2>
-      <ul class='item-lists'>
-         <% @items.each do |item| %>   
-       <li class='list'>
-          <%= link_to item_path(item.id), method: :get do %>
-         <div class='item-img-content'>
-           <%= image_tag item.image, class: "item-img" if item.image.attached? %> 
-           <% if item.order.present? %>
-            <div class='sold-out'>
-              <span>Sold Out!!</span>
-            </div>
-           <% end %> 
-         </div>
-          <div class='item-info'>
-            <h3 class='item-name'>
-              <%= item.product_name %>
-            </h3>
-            <div class='item-price'>
-                <span><%= item.price %>円<br><%= item.shipping_charge.name %></span>
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
+     </div>
+
+   <div class='item-search-lists'>
+      <% if @results.length !=0 %>
+         <ul class='item-lists'>
+             <% @items.each do |item| %>   
+            <li class='list'>
+                <%= link_to item_path(item.id), method: :get do %>
+              <div class='item-img-content'>
+                    <%= image_tag item.image, class: "item-img" if item.image.attached? %> 
+
+                    <% if item.order.present? %>
+                      <div class='sold-out'>
+                        <span>Sold Out!!</span>
+                      </div>
+                    <% end %> 
+
+              </div>
+
+            <div class='item-info'>
+                 <h3 class='item-name'>
+                    <%= item.product_name %>
+                 </h3>
+              <div class='item-price'>
+                    <span><%= item.price %>円<br><%= item.shipping_charge.name %></span>
+                <div class='star-btn'>
+                    <%= image_tag "star.png", class:"star-icon" %>
+                    <span class='star-count'>0</span>
+                </div>
               </div>
             </div>
-          </div>
-          <% end %>
-      </li>
+
+         <% end %>
+       </li>
+       <% end %>
+       
+       <% else %>
+         <div class='title'>
+            該当する商品はありません 
+         </div>
        <% end %>
   </div>
 
